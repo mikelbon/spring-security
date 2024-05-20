@@ -14,3 +14,4 @@ FROM
        role_permissions rp ON r.id =rp.role_id
        INNER JOIN
        permissions p ON rp.permission_id = p.id
+       WHERE u.username = 'alejandra';

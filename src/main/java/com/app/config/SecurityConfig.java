@@ -28,6 +28,7 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 public class SecurityConfig {
     @Autowired
     private JwtUtils jwtUtils;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
@@ -41,6 +42,8 @@ public class SecurityConfig {
                     // Configurar los endpoints privados
                     http.requestMatchers(HttpMethod.POST, "/method/post").hasAnyRole("ADMIN", "DEVELOPER");
                     http.requestMatchers(HttpMethod.PATCH, "/method/patch").hasAnyAuthority("REFACTOR");
+                    http.requestMatchers(HttpMethod.GET, "/method/get").hasAnyAuthority("READ");
+
 
                     // Configurar el resto de endpoint - NO ESPECIFICADOS
                     http.anyRequest().denyAll();
@@ -48,13 +51,14 @@ public class SecurityConfig {
                 .addFilterBefore(new JwtTokenValidator(jwtUtils), BasicAuthenticationFilter.class)
                 .build();
     }
+
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
     @Bean
-    public AuthenticationProvider authenticationProvider(UserDetailServiceImpl userDetailService){
+    public AuthenticationProvider authenticationProvider(UserDetailServiceImpl userDetailService) {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setPasswordEncoder(passwordEncoder());
         provider.setUserDetailsService(userDetailService);
@@ -62,7 +66,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 }

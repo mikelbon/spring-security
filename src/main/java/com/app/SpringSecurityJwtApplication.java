@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Set;
 
 @SpringBootApplication
-public class SpringSecurityJwtApplication {
+public class          SpringSecurityJwtApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringSecurityJwtApplication.class, args);

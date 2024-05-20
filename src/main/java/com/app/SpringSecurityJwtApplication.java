@@ -1,10 +1,10 @@
-package com.example;
+package com.app;
 
-import com.example.persistence.entity.PermissionEntity;
-import com.example.persistence.entity.RoleEntity;
-import com.example.persistence.entity.RoleEnum;
-import com.example.persistence.entity.UserEntity;
-import com.example.persistence.repository.UserRepository;
+import com.app.persistence.entity.PermissionEntity;
+import com.app.persistence.entity.RoleEntity;
+import com.app.persistence.entity.RoleEnum;
+import com.app.persistence.entity.UserEntity;
+import com.app.persistence.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

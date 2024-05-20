@@ -1,6 +1,6 @@
-package com.example.persistence.repository;
+package com.app.persistence.repository;
 
-import com.example.persistence.entity.RoleEntity;
+import com.app.persistence.entity.RoleEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

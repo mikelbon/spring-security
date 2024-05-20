@@ -1,4 +1,4 @@
-package com.example.persistence.entity;
+package com.app.persistence.entity;
 
 public enum RoleEnum {
     ADMIN,
